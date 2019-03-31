@@ -1,9 +1,9 @@
 sudo: required
 services:
-  - docker-compose
+  - docker
 
 before_install:
-  - docker-compose build 
+  - docker build -t ibrahim/hadeeth -f ./web/Dockerfile ./web
 
 script:
-  - docker-compose run web npm run test -- --coverage
+  - docker run ibrahim/hadeeth
