@@ -9,11 +9,11 @@ script:
   - docker run ibrahim/hadeeth
 deploy:
   provider: elasticbeanstalk
-  regions: "eu-central-1"
-  app: "hadeeth"
-  env: "Hadeeth-env"
-  bucket_name: "elasticbeanstalk-eu-central-1-064382240297"
-  bucket_path: "hadeeth"
+  regions: "us-east-1"
+  app: "Sobhysample"
+  env: "Sobhysample-env"
+  bucket_name: "elasticbeanstalk-us-east-1-064382240297"
+  bucket_path: "Sobhysample"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
