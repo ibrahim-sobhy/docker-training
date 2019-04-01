@@ -11,8 +11,8 @@ deploy:
   provider: elasticbeanstalk
   regions: "eu-north-1"
   app: "hadeeth"
-  env: "Hadeeth-env"
-  bucket_name: "elasticbeanstalk-eu-north-106438224097"
+  env: "Hadeeth-env-1"
+  bucket_name: "elasticbeanstalk-eu-north-1-064382240297"
   bucket_path: "hadeeth"
   on:
     branch: master
