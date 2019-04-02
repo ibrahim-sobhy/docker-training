@@ -8,7 +8,7 @@ before_install:
   - docker build -t ibrahimsobhy/hadeeth-gateway ./gateway
 
 script:
-  - docker run -d hadeeth/hadeeth-web
+  - docker run -d ibrahimsobhy/hadeeth-web
 
 after_success:
   # Log in to docker CLI
