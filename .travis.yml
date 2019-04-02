@@ -3,20 +3,33 @@ services:
   - docker
 
 before_install:
-  - docker build -t ibrahim/hadeeth -f ./web/Dockerfile ./web
+  - docker build -t hadeeth/hadeeth-web ./web
+  - docker build -t hadeeth/hadeeth-api ./api
+  - docker build -t hadeeth/hadeeth-gateway ./gateway
 
 script:
-  - docker run ibrahim/hadeeth
-deploy:
-  provider: elasticbeanstalk
-  regions: "us-east-1"
-  app: "Sobhysample"
-  env: "Sobhysample-env"
-  bucket_name: "elasticbeanstalk-us-east-1-064382240297"
-  bucket_path: "Sobhysample"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  - docker run -d hadeeth/hadeeth-web
+
+after_success:
+  # Log in to docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push these images to docker hub
+  - docker push hadeeth/hadeeth-web
+  - docker push hadeeth/hadeeth-api
+  - docker push hadeeth/hadeeth-gateway
+
+
+
+# deploy:
+#   provider: elasticbeanstalk
+#   regions: "us-east-1"
+#   app: "Sobhysample"
+#   env: "sobhy-multi"
+#   bucket_name: "elasticbeanstalk-us-east-1-064382240297"
+#   bucket_path: "Sobhysample"
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: "$AWS_SECRET_KEY"
   
