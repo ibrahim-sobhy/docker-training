@@ -20,16 +20,16 @@ after_success:
 
 
 
-# deploy:
-#   provider: elasticbeanstalk
-#   regions: "us-east-1"
-#   app: "Sobhysample"
-#   env: "sobhy-multi"
-#   bucket_name: "elasticbeanstalk-us-east-1-064382240297"
-#   bucket_path: "Sobhysample"
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key:
-#     secure: "$AWS_SECRET_KEY"
+deploy:
+  provider: elasticbeanstalk
+  regions: "us-east-1"
+  app: "hadeeth"
+  env: "Hadeeth-env"
+  bucket_name: "elasticbeanstalk-us-east-1-064382240297"
+  bucket_path: "hadeeth"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
   
