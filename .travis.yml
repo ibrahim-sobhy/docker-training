@@ -3,9 +3,9 @@ services:
   - docker
 
 before_install:
-  - docker build -t hadeeth/hadeeth-web ./web
-  - docker build -t hadeeth/hadeeth-api ./api
-  - docker build -t hadeeth/hadeeth-gateway ./gateway
+  - docker build -t ibrahimsobhy/hadeeth-web ./web
+  - docker build -t ibrahimsobhy/hadeeth-api ./api
+  - docker build -t ibrahimsobhy/hadeeth-gateway ./gateway
 
 script:
   - docker run -d hadeeth/hadeeth-web
@@ -14,9 +14,9 @@ after_success:
   # Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push these images to docker hub
-  - docker push hadeeth/hadeeth-web
-  - docker push hadeeth/hadeeth-api
-  - docker push hadeeth/hadeeth-gateway
+  - docker push ibrahimsobhy/hadeeth-web
+  - docker push ibrahimsobhy/hadeeth-api
+  - docker push ibrahimsobhy/hadeeth-gateway
 
 
 
